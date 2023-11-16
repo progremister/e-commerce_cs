@@ -1,8 +1,7 @@
 import products from "../seeders/products";
 
 export default (sequelize, DataTypes) => {
-  const Products = sequelize.define(
-    "Products",
+  const Products = sequelize.define("Products",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -25,7 +24,7 @@ export default (sequelize, DataTypes) => {
           Products.hasMany(models.Review);
           Products.hasMany(models.ProductCategory);
           Products.belongsToMany(models.Category, {
-            through: models.ProductCategory,
+            through: models.ProductsCategories,
           });
           Products.hasMany(models.CartItem);
         },

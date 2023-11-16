@@ -15,8 +15,8 @@ export default (sequelize, DataTypes) => {
     }, {
       classMethods: {
         associate(models) {
-          Categories.hasMany(models.ProductCategory);
-          Categories.belongsToMany(models.Product, { through: models.ProductCategory });
+          Categories.hasMany(models.ProductsCategories);
+          Categories.belongsToMany(models.Product, { through: models.ProductsCategories });
         },
       },
     });
