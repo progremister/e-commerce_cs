@@ -3,7 +3,7 @@ import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 dotenv.config();
 
-// create connection to our db
+// create connection to local db
 let sequelize: Sequelize;
 
 sequelize = new Sequelize(

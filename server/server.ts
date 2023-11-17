@@ -3,9 +3,9 @@ import cors from "cors";
 import path from "path";
 import sequelize from "./config/connection";
 
-import { logger, logEvents } from "./middleware/logger";
+import { logger } from "./middleware/logger";
 import errorHandler from "./middleware/errorHandler";
-const apiRoutes = require('./api');
+import apiRoutes from "./routes/api";
 
 const app = express();
 
@@ -27,12 +27,14 @@ app.use(logger);
 app.use(errorHandler);
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
+
+
 /* ROUTES */
 
-app.use('/api', apiRoutes);
+app.use("/api", apiRoutes);
 
 app.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>")
+  res.send("<h1>Wrong Route!</h1>");
 });
 
 /* SERVER */

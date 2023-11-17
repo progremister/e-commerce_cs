@@ -9,4 +9,4 @@ router.use("/categories", categoryRoutes);
 router.use("/products", productRoutes);
 router.use("/cart", cartRoutes);
 
-module.exports = router;
+export default router;
