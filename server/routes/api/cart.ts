@@ -1,12 +1,12 @@
 import express from "express";
-import { getCart, addToCart, removeCartItem } from "../../controllers/cart";
+import { addToCart, removeCartItem } from "../../controllers/cart";
 
 const router = express.Router();
 
-router.get("/", getCart);
-
+//add product to cart
 router.post("/:id", addToCart);
 
+//remove product from cart
 router.delete("/:id", removeCartItem);
 
 export default router;

@@ -1,8 +1,10 @@
 import express from "express";
+import session from "express-session";
 import cors from "cors";
 import path from "path";
-import sequelize from "./config/connection";
+import bodyParser from "body-parser";
 
+import sequelize from "./config/connection";
 import { logger } from "./middleware/logger";
 import errorHandler from "./middleware/errorHandler";
 import apiRoutes from "./routes/api";
@@ -26,8 +28,8 @@ app.use(
 app.use(logger);
 app.use(errorHandler);
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
-
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 /* ROUTES */
 
@@ -36,6 +38,17 @@ app.use("/api", apiRoutes);
 app.use((req, res) => {
   res.send("<h1>Wrong Route!</h1>");
 });
+
+/* SESSION FOR CART */
+
+app.use(
+  session({
+    secret: process.env.SESSION_KEY!, // Change this to a secure secret
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+  })
+);
 
 /* SERVER */
 
