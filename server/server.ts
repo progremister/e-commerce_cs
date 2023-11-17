@@ -1,15 +1,18 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import path from "path";
+import sequelize from "./config/connection";
 
 import { logger, logEvents } from "./middleware/logger";
 import errorHandler from "./middleware/errorHandler";
-import db from "./models";
-import productRoutes from "./routes/products";
-import cartRoutes from "./routes/cart";
+const apiRoutes = require('./api');
 
 const app = express();
+
+/* MIDDLEWARES */
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
@@ -24,14 +27,21 @@ app.use(logger);
 app.use(errorHandler);
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
-/* Routes */
-app.use("/products", productRoutes);
-app.use("/cart", cartRoutes);
+/* ROUTES */
+
+app.use('/api', apiRoutes);
+
+app.use((req, res) => {
+  res.send("<h1>Wrong Route!</h1>")
+});
+
+/* SERVER */
 
 const PORT = process.env.PORT || 3333;
 console.log("E-commerce Server");
 
-db.sequelize.sync().then(() => {
+// sync sequelize models to the database, then turn on the server
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running onn port ${PORT}`);
   });
