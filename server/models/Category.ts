@@ -2,30 +2,30 @@ import { Model, DataTypes } from "sequelize";
 
 import sequelize from "../config/connection";
 
-export interface CartItemAttributes {
+export interface CategoryAttributes {
   id: number;
-  product_id: number;
+  category_name: string;
 }
 
 //categorie class
-class CartItem extends Model<CartItemAttributes> implements CartItemAttributes {
+class Category extends Model<CategoryAttributes> implements CategoryAttributes {
   public id!: number;
-  public product_id!: number;
+  public category_name!: string;
 }
 
-CartItem.init(
+Category.init(
   {
     // define columns
     id: {
-      allowNull: false,
-      autoIncrement: false,
-      primaryKey: true,
-      type: DataTypes.UUID,
-      unique: true,
-    },
-    product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    category_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
   },
   {
@@ -37,4 +37,4 @@ CartItem.init(
   }
 );
 
-export default CartItem;
+export default Category;
