@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // create connection to our db
-let sequelize;
+let sequelize: Sequelize;
 
 sequelize = new Sequelize(
   process.env.DB_NAME!,
