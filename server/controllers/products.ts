@@ -36,6 +36,7 @@ export const createProduct = async (req: Request, res: Response) => {
     id: req.body.product_name,
     product_name: req.body.product_name,
     price: req.body.price,
+    description: req.body.description,
     stock: req.body.stock,
     category_id: req.body.stock
   })

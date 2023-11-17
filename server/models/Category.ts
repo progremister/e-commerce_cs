@@ -4,14 +4,14 @@ import sequelize from "../config/connection";
 import Product from "./Product";
 
 export interface CategoryAttributes {
-  id: number;
+  id?: number; //can be null as AutoIncremented
   category_name: string;
   products?: Product[]
 }
 
 //categorie class
 class Category extends Model<CategoryAttributes> implements CategoryAttributes {
-  public id!: number;
+  public id?: number;
   public category_name!: string;
   public products?: Product[]; 
 }
