@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5174",
     methods: ["POST", "GET", "OPTIONS", "PUT"],
     credentials: true,
     optionsSuccessStatus: 200,
@@ -27,17 +27,13 @@ app.use(
 
 app.use(logger);
 app.use(errorHandler);
-app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 /* ROUTES */
-
+app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 app.use("/api", apiRoutes);
-
-app.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>");
-});
 
 /* SESSION FOR CART */
 

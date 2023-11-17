@@ -9,6 +9,8 @@ export interface ProductAttributes {
   price: number;
   stock: number;
   category_id?: number;
+  href: string;
+  image_url: string;
 }
 
 class Product extends Model<ProductAttributes> implements ProductAttributes {
@@ -18,6 +20,8 @@ class Product extends Model<ProductAttributes> implements ProductAttributes {
   public price!: number;
   public stock!: number;
   public category_id?: number;
+  public href!: string;
+  public image_url!: string;
 }
 
 Product.init(
@@ -51,6 +55,14 @@ Product.init(
       validate: {
         isNumeric: true,
       },
+    },
+    href: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     category_id: {
       allowNull: true,

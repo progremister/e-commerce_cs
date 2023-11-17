@@ -38,7 +38,9 @@ export const createProduct = async (req: Request, res: Response) => {
     price: req.body.price,
     description: req.body.description,
     stock: req.body.stock,
-    category_id: req.body.stock
+    category_id: req.body.stock,
+    href: req.body.href,
+    image_url: req.body.image_url
   })
     .then((product) => {
         res.status(200).json(product);
