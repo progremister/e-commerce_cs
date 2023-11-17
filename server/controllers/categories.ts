@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 import { Product, Category } from "../models";
+import sequelize from "../config/connection";
 
 // find all categories
 export const getAllCategories = async (req: Request, res: Response) => {
+  //SELECT categories.*, products.* FROM categories LEFT JOIN products ON categories.id = products.category_id;
   await Category.findAll({ include: [Product] })
     .then((dbData) => res.json(dbData))
     .catch((err: Error) => {
@@ -18,6 +20,18 @@ export const getCategorieProducts = async (req: Request, res: Response) => {
       where: { id: req.params.id },
       include: [Product],
     });
+
+    /* const query = `
+    SELECT categories.*, products.*
+    FROM categories
+    LEFT JOIN products ON categories.id = products.category_id
+    WHERE categories.id = :categoryId;
+    `;
+
+    const [categoryWithProducts] = await sequelize.query(query, {
+        replacements: { categoryId },
+        type: sequelize.QueryTypes.SELECT,
+      }); */
 
     if (category) {
       res.json(category.products);

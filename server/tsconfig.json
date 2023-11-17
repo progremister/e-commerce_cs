@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "rootDir": "./",
     "baseUrl": "./",
     "paths": {
-      "*": ["src/*"],
+      "*": ["src/*"]
     },
     "allowJs": true,
     "target": "ES6",
@@ -15,10 +16,10 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "types": ["node"],
-    "typeRoots": [ "./node_modules/@types" ],
+    "typeRoots": ["./node_modules/@types"]
   },
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Recommended",
-  "include": ["*.ts", "server.ts"],
+  "include": ["*.ts", "server.ts", "seeders/seed.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
-}  
+}

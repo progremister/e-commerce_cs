@@ -5,8 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "node server",
-    "dev": "nodemon server",
-    "seed": "node seeds"
+    "dev": "nodemon --esm server",
+    "seed": "node seeders/index.ts"
   },
   "author": "Dmytro Kolosovskyi",
   "license": "ISC",
@@ -29,6 +29,7 @@
     "@types/node": "^20.9.1",
     "@types/uuid": "^9.0.7",
     "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
 }

@@ -1,5 +1,5 @@
-import seedCategories from "./categories";
-import seedProducts from "./products";
+import seedCategories from "./categories.js";
+import seedProducts from "./products.js";
 
 const sequelize = require("../config/connection");
 

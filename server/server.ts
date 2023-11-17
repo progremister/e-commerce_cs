@@ -58,6 +58,6 @@ console.log("E-commerce Server");
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log(`Server is running onn port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
   });
 });
