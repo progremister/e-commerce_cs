@@ -1,9 +1,23 @@
-const categories = [
-  { name: "Laptops" },
-  { name: "Smartphones" },
-  { name: "Gaming Gear" },
-  { name: "Smart Home" },
-  { name: "Tech Accessories" },
+import { Category } from "../models";
+
+const categoryData = [
+  {
+    category_name: "Shirts",
+  },
+  {
+    category_name: "Shorts",
+  },
+  {
+    category_name: "Music",
+  },
+  {
+    category_name: "Hats",
+  },
+  {
+    category_name: "Shoes",
+  },
 ];
 
-export default categories;
+const seedCategories = () => Category.bulkCreate(categoryData);
+
+export default seedCategories;

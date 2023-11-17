@@ -1,64 +1,45 @@
-const products = [
+import { Product } from "../models";
+
+const productData = [
   {
-    name: "Smartphone X",
-    description:
-      "High-performance smartphone with advanced camera and AI capabilities.",
-    price: 799.99,
+    product_name: "Plain T-Shirt",
+    price: 14.99,
+    stock: 14,
+    description: "A comfortable plain T-shirt suitable for everyday wear.",
+    category_id: 1,
   },
   {
-    name: "UltraBook Pro",
+    product_name: "Running Sneakers",
+    price: 90.0,
+    stock: 25,
     description:
-      "Lightweight and powerful ultrabook with a stunning 4K display.",
-    price: 1299.99,
+      "High-quality running sneakers for a comfortable and active lifestyle.",
+    category_id: 5,
   },
   {
-    name: "VR Gaming Headset",
-    description:
-      "Immersive virtual reality gaming experience with 360-degree motion tracking.",
-    price: 499.99,
+    product_name: "Branded Baseball Hat",
+    price: 22.99,
+    stock: 12,
+    description: "Stylish branded baseball hat to complement your look.",
+    category_id: 4,
   },
   {
-    name: "Smart Home Hub",
-    description:
-      "Centralized control for smart home devices, voice-activated and IoT compatible.",
-    price: 149.99,
+    product_name: "Top 40 Music Compilation Vinyl Record",
+    price: 12.99,
+    stock: 50,
+    description: "Vinyl record featuring the top 40 music compilation.",
+    category_id: 3,
   },
   {
-    name: "Noise-Canceling Headphones",
+    product_name: "Cargo Shorts",
+    price: 29.99,
+    stock: 22,
     description:
-      "Premium over-ear headphones with active noise-canceling technology.",
-    price: 249.99,
-  },
-  {
-    name: "Drones Explorer Kit",
-    description:
-      "Explore the skies with this beginner-friendly drone kit equipped with HD camera.",
-    price: 349.99,
-  },
-  {
-    name: "High-Performance Graphics Card",
-    description:
-      "Boost your gaming experience with the latest graphics card featuring ray tracing technology.",
-    price: 699.99,
-  },
-  {
-    name: "Wireless Charging Dock",
-    description:
-      "Charge your devices wirelessly with this sleek and efficient charging dock.",
-    price: 79.99,
-  },
-  {
-    name: "Smart Fitness Tracker",
-    description:
-      "Track your fitness goals with this smart wearable featuring heart rate monitoring and GPS.",
-    price: 129.99,
-  },
-  {
-    name: "Home Security Camera System",
-    description:
-      "Secure your home with a state-of-the-art camera system offering real-time monitoring.",
-    price: 299.99,
+      "Durable cargo shorts with multiple pockets for your convenience.",
+    category_id: 2,
   },
 ];
 
-export default products;
+const seedProducts = () => Product.bulkCreate(productData);
+
+export default seedProducts;
