@@ -13,22 +13,14 @@ const Navbar = () => {
         DK Shop
       </NavLink>
       <div className="flex gap-3 items-center">
-        <NavLink to="/about" className="text-neutral-500 hover:text-black">
-          About
-        </NavLink>
-        <NavLink to="/categories" className="text-neutral-500 hover:text-black">
-          Categories
-        </NavLink>
-      </div>
-      <div className="flex gap-3 items-center">
         <button
           type="button"
           className="w-10 h-10 rounded-full text-neutral-500 hover:text-black  p-2 relative"
           onClick={openCart}
         >
-          <FaShoppingCart className="w-6 h-6" />
+          <FaShoppingCart className="w-6 h-6 hover:black transition-colors duration-200" />
           {cartQuantity > 0 && (
-            <div className="rounded-full w-4 h-4 absolute bottom-0 right-1 text-white bg-red-500 flex justify-center items-center">
+            <div className="rounded-full w-4 h-4 absolute bottom-0 right-1 text-white bg-orange-400 flex justify-center items-center">
               {cartQuantity}
             </div>
           )}
