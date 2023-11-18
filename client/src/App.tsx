@@ -1,22 +1,20 @@
-import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Navbar from "./components/Navbar"
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import Product from "./pages/Product";
 
 function App() {
-
   return (
-    <>
+    <div className="h-full">
       <Navbar />
-      <div className="px-15">
-
-      <Routes> 
-        <Route path="/" element={<Home />}/>
-        <Route path="/" element={<About />}/>
-      </Routes>
+      <div className="px-15 h-full">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:href" element={<Product />} />
+        </Routes>
+      </div>
     </div>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

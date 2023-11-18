@@ -61,9 +61,9 @@ const Home = () => {
         <div
           className={`font-semibold px-2 py-1 border-spacing-1 ${
             activeCategory === null
-              ? "border-b-2 border-b-orange-400"
+              ? "border-b-2 border-b-orange-400 text-orange-400"
               : "border-b-2"
-          } focus:border-b-orange-400 hover:border-b-orange-400 transition-colors duration-200`}
+          } focus:border-b-orange-400 hover:border-b-orange-400 hover:text-orange-400 transition-colors duration-200`}
           onClick={() => {
             getProducts();
             setActiveCategory(null);
@@ -76,9 +76,9 @@ const Home = () => {
             key={category.id}
             className={`font-semibold px-2 py-1 border-spacing-1 ${
               activeCategory === category.id
-                ? "border-b-2 border-b-orange-400"
+                ? "border-b-2 border-b-orange-400 text-orange-400"
                 : "border-b-2"
-            } focus:border-b-orange-400 hover:border-b-orange-400 transition-colors duration-200`}
+            } focus:border-b-orange-400 hover:border-b-orange-400 hover:text-orange-400 transition-colors duration-200`}
             onClick={() => filterProductsByCategory(category.id!)}
           >
             <Link to={`/?sort=${category.id}`}>{category.category_name}</Link>
