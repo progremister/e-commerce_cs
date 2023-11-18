@@ -24,6 +24,16 @@ export const getProductById = async (req: Request, res: Response) => {
     });
 }
 
+// find a single product by its `href`
+export const getProductByHref = async (req: Request, res: Response) => {
+  await Product.findOne({ where: { href: req.params.href }, include: [Category] })
+    .then((dbData) => res.json(dbData))
+    .catch((err: Error) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+}
+
 /* req.body should look like this...
   {
     "product_name": "Basketball",

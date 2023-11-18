@@ -6,6 +6,7 @@ import {
   getProductById,
   createProduct,
   deleteProduct,
+  getProductByHref,
 } from "../../controllers/products";
 
 // The `/api/products` endpoint
@@ -15,6 +16,8 @@ router.get("/", getAllProducts);
 
 // get one product
 router.get("/:id", getProductById);
+
+router.get("/product/:href", getProductByHref);
 
 // create new product
 router.post("/", createProduct);

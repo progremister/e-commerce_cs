@@ -59,6 +59,7 @@ Product.init(
     href: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     image_url: {
       type: DataTypes.STRING,
